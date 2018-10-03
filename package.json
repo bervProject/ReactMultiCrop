@@ -1,0 +1,27 @@
+{
+  "name": "react-multi-crop",
+  "version": "1.0.0",
+  "description": "React Component for Field in react-admin using Fabric JS",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bervProject/ReactMultiCrop.git"
+  },
+  "keywords": [
+    "react-component"
+  ],
+  "author": "Bervianto Leo Pratama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bervProject/ReactMultiCrop/issues"
+  },
+  "homepage": "https://github.com/bervProject/ReactMultiCrop#readme",
+  "dependencies": {
+    "fabric": "^2.4.1",
+    "material-ui": "^0.20.2",
+    "react-admin": "^2.3.3"
+  }
+}
