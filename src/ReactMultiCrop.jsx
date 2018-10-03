@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fabric } from 'fabric';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import { Labeled } from 'react-admin';
 
 import Grid from '@material-ui/core/Grid';
