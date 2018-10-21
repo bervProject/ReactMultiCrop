@@ -1,6 +1,6 @@
 {
   "name": "react-multi-crop",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React Component for Field in react-admin using Fabric JS",
   "main": "./lib/ReactMultiCrop.js",
   "scripts": {
