@@ -73,7 +73,7 @@ class ReactMultiCrop extends Component {
   }
 
   initialCanvas () {
-    var canvas = new fabric.Canvas('canvas')
+    var canvas = new fabric.Canvas(this.props.id)
     canvas.uniScaleTransform = true
     let doubleClickEvent = this.doubleClickEvent.bind(this)
     let objectModifiedEvent = this.setOutput.bind(this)
@@ -238,7 +238,7 @@ class ReactMultiCrop extends Component {
             alignItems='flex-start'
             spacing='8'>
             <Grid item xs onKeyDown={this.keyboardHandler} tabIndex='0'>
-              <canvas id='canvas' width='800' height='800' style={{ border: '1px solid #aaa' }}{...this.props} />
+              <canvas width='800' height='800' style={{ border: '1px solid #aaa' }}{...this.props} />
             </Grid>
             <Grid container item xs
               direction='column'
@@ -264,6 +264,10 @@ class ReactMultiCrop extends Component {
       </div>
     )
   }
+}
+
+ReactMultiCrop.defaultProps = {
+  id: 'canvas'
 }
 
 export default ReactMultiCrop
