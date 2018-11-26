@@ -1,20 +1,17 @@
 language: node_js
-
 node_js:
 - '10'
-
 before_install:
 - npm install
 - npm run fix-lint
 - npm test
-
 script:
 - npm run build
-
 deploy:
   provider: npm
-  email: "bervianto.leo@gmail.com"
-  api_key: "eKMpdUNVMZjp912B0CKzxwK9B2FX1phqBkIIxwEVPkvdrRO1JCl7N4cDaGW4L5NuCbJDEYB9j7h2pIV0bkkqMP+cMx2SSmLBzRsGhNUDtkLJyD+ihDUHAO5TLDYOnleFjHqU98uqNbKB4Vxh1LxgsyNUbqh15yFs2Zl3gvOEs5ThGhMtrrbDQyaKpVoVF6F83DdFuUO4RnenpOn8RGjIw5WIZUL+ARUIVAo4k/KajJc0tUK7phO4+ZcKwqS8fxNpB6sFHoruwzzurfvlH/SGERzWSo7P2Pr/ap1icjaXLo/fVTW6Ftc+Hllmd3Ptc1DAfpCGdjTrQ5JemfyoNJ3KoIRVaL5LPbTVuk4ly4s4eBJywUyoFxoLk9DnMaEO8jpoZkvigaJlKjFaFVpA/xp/FkW7tRRHAkwt/6GczXlubcxXRUL/5Fx9vTUC0EXHyYL06KSKFXcRfvYNLTHZiO9oPBonumJ8RSRhASB0cFAdBn8OUiaesiTD8ZkCKB9snuUaZqAQripjzYHQvz6AHj4Q/LJ02sUjlaRzHMmnw2Z6TXTANFdG70Coiu9BzaPcAf3Z3VS2JYbvjF/DaWSkpB7qq9S5vaUog80vPzUrv/GGZdCC/Z4h/Zxk2BEmfPpCwDzGs9E2Ei30xg3ZYVWvNjX+R1u5OyLJ4gI0oaZ7kHHzl04="
+  email: bervianto.leo@gmail.com
+  api_key:
+    secure: eWaZH3bDgqTYetpDOMOV3p/pFRWaZ8tVj73ijDlFLtfNJ/loo6jaGIPa8gYaWKUwFQgW1ZyGdnOd6SmW0b8dE+TDJ1XYYGosF9AKWCFxJec91NOznuZWlEIInWn7HgPafhFTueQs4bvgGzhi+KgEhAlNzewt/tcrRj/48etpHO8zbkmDka19zpdW8TtqqZ6VRFnf+BZ7oTYJq9gnO8lQ+p8Ao1TcZ3uMKmwzvHXWtl9/mGR9YyCSSgiXtVLGdOv45SYVp4YHWBxkprck/ILtyMfrkoGdWl7v94q4hrlRqEwr6NMXV2/tRKW20cLZB2koxQJYcKRYB8Fwjgh+hAz6KdUExQuuzyhP11YiiBnfpOK/HIYXyrl92LaDUAVL+4G35x2H+h+f5BsU4lS0r2/vOEoz9Y281mkmuUCEGgzJPDjtCb9PbSIwdnOBF5WEbv5yztByd433n+95ilZoK8cGR2/4/Z+n4f8fFWBxM615EodDcXxAIoxHRUwpEKZRgSFkOdcHseoqj9R4whKjxHwSfTKGTJ+n7ZHZOVqxM1iNuSVrYv6E7W9MG4Vkvzs9CTNW1FVvMWE1ysL4+eFY3YYnIEPvHauivq6lFgzfgSNxCwGRUeeY539kAPeHSFWVo8OYrNtngTh+oM3UxbR2mYwM7rSgiEmbLGiX2+rZse/KfZM=
   skip_cleanup: true
   on:
     tags: true
