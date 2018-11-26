@@ -9,6 +9,9 @@
     "prepublish": "npm run build",
     "test": "standard \"src/*.jsx\" "
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bervProject/ReactMultiCrop.git"
