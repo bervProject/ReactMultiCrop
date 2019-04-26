@@ -4,7 +4,7 @@
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ea45a02956a4ca78eb39823c15b1cc8)](https://app.codacy.com/app/berviantoleo/ReactMultiCrop?utm_source=github.com&utm_medium=referral&utm_content=bervProject/ReactMultiCrop&utm_campaign=Badge_Grade_Settings)
-[![Build Status](https://travis-ci.org/bervProject/ReactMultiCrop.svg?branch=master)](https://travis-ci.org/bervProject/ReactMultiCrop) [![Greenkeeper badge](https://badges.greenkeeper.io/bervProject/ReactMultiCrop.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/bervProject/ReactMultiCrop.svg?branch=master)](https://travis-ci.org/bervProject/ReactMultiCrop)
 
 ReactMultiCrop Used Fabric.js and Integrated with react-admin. Design for [react-admin](https://github.com/marmelab/react-admin) component.
 
