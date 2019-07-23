@@ -34,7 +34,7 @@ class ReactMultiCrop extends Component {
 
   changeImage () {
     const { record } = this.props
-    let setImage = this.loadImage.bind(this)
+    const setImage = this.loadImage.bind(this)
     fabric.Image.fromURL(record.image, setImage)
   }
 
@@ -51,20 +51,20 @@ class ReactMultiCrop extends Component {
 
   initialImage () {
     const { record } = this.props
-    let loadImageNow = this.loadImage.bind(this)
+    const loadImageNow = this.loadImage.bind(this)
     fabric.Image.fromURL(record.image, loadImageNow)
   }
 
   initialObjects () {
     var { canvas } = this.state
     const { record } = this.props
-    let setOutput = this.setOutput.bind(this)
-    let setStateOf = this.setState.bind(this)
-    let inputObject = record.clippings
-    let createObject = this.createObject.bind(this)
+    const setOutput = this.setOutput.bind(this)
+    const setStateOf = this.setState.bind(this)
+    const inputObject = record.clippings
+    const createObject = this.createObject.bind(this)
     if (inputObject !== undefined) {
       inputObject.forEach(function (coord) {
-        let rect = createObject(canvas, coord)
+        const rect = createObject(canvas, coord)
         canvas.add(rect)
       })
     }
@@ -75,11 +75,11 @@ class ReactMultiCrop extends Component {
   initialCanvas () {
     var canvas = new fabric.Canvas(this.props.id)
     canvas.uniScaleTransform = true
-    let doubleClickEvent = this.doubleClickEvent.bind(this)
-    let objectModifiedEvent = this.setOutput.bind(this)
+    const doubleClickEvent = this.doubleClickEvent.bind(this)
+    const objectModifiedEvent = this.setOutput.bind(this)
     canvas.on('mouse:dblclick', doubleClickEvent)
     canvas.on('object:modified', objectModifiedEvent)
-    let initialImg = this.initialImage.bind(this)
+    const initialImg = this.initialImage.bind(this)
     this.setState({ canvas }, initialImg)
   }
 
@@ -87,7 +87,7 @@ class ReactMultiCrop extends Component {
     var { canvas } = this.state
     var coor = {}
     coor.id = null
-    coor.rect = { 'x1': 0, 'y1': 0, 'x2': 0.2, 'y2': 0.2 }
+    coor.rect = { x1: 0, y1: 0, x2: 0.2, y2: 0.2 }
     var rect = this.createObject(canvas, coor)
     rect.lockRotation = true
     canvas.add(rect)
@@ -132,22 +132,22 @@ class ReactMultiCrop extends Component {
 
   shapetoStructureData (element) {
     var { canvas } = this.state
-    let coord = {}
+    const coord = {}
     coord.id = element.id
-    let x1 = element.left / canvas.width
-    let y1 = element.top / canvas.height
-    let x2 = (element.left + (element.width * element.scaleX)) / canvas.width
-    let y2 = (element.top + (element.height * element.scaleY)) / canvas.height
-    var rectangle = { 'x1': x1, 'y1': y1, 'x2': x2, 'y2': y2 }
+    const x1 = element.left / canvas.width
+    const y1 = element.top / canvas.height
+    const x2 = (element.left + (element.width * element.scaleX)) / canvas.width
+    const y2 = (element.top + (element.height * element.scaleY)) / canvas.height
+    var rectangle = { x1: x1, y1: y1, x2: x2, y2: y2 }
     coord.rect = JSON.stringify(rectangle)
     if (canvas.backgroundImage) {
-      let imgWidth = canvas.backgroundImage.width
-      let imgHeight = canvas.backgroundImage.height
-      let x1Px = x1 * imgWidth
-      let x2Px = x2 * imgWidth
-      let y1Px = y1 * imgHeight
-      let y2Px = y2 * imgHeight
-      var rectanglePx = { 'x1': x1Px, 'y1': y1Px, 'x2': x2Px, 'y2': y2Px }
+      const imgWidth = canvas.backgroundImage.width
+      const imgHeight = canvas.backgroundImage.height
+      const x1Px = x1 * imgWidth
+      const x2Px = x2 * imgWidth
+      const y1Px = y1 * imgHeight
+      const y2Px = y2 * imgHeight
+      var rectanglePx = { x1: x1Px, y1: y1Px, x2: x2Px, y2: y2Px }
       coord.rectPx = JSON.stringify(rectanglePx)
     }
     coord.deletedAt = '-1'
@@ -166,9 +166,9 @@ class ReactMultiCrop extends Component {
 
   setOutput () {
     var { canvas } = this.state
-    let shapeToStructureData = this.shapetoStructureData.bind(this)
-    let outputValue = []
-    let cropcoords = canvas.getObjects()
+    const shapeToStructureData = this.shapetoStructureData.bind(this)
+    const outputValue = []
+    const cropcoords = canvas.getObjects()
     cropcoords.forEach(function (element) {
       outputValue.push(shapeToStructureData(element))
     })
@@ -183,12 +183,12 @@ class ReactMultiCrop extends Component {
     } else {
       rectangle = coor.rect
     }
-    let left = canvas.width * rectangle.x1
-    let top = canvas.height * rectangle.y1
-    let right = canvas.width * rectangle.x2
-    let bottom = canvas.height * rectangle.y2
-    let width = right - left
-    let height = bottom - top
+    const left = canvas.width * rectangle.x1
+    const top = canvas.height * rectangle.y1
+    const right = canvas.width * rectangle.x2
+    const bottom = canvas.height * rectangle.y2
+    const width = right - left
+    const height = bottom - top
     return new fabric.Rect({
       left: left,
       top: top,
