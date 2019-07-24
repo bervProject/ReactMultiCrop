@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/bervProject/ReactMultiCrop#readme",
   "peerDependencies": {
-    "fabric": "^2.4.1",
+    "fabric": "^3.3.2",
     "@material-ui/core": "^4.2.1",
     "react": "^16.5.2",
     "react-admin": "^2.3.3",
@@ -55,7 +55,7 @@
     "@babel/runtime": "^7.1.2",
     "@material-ui/core": "^4.2.1",
     "babel-loader": "^8.0.4",
-    "fabric": "^2.4.1",
+    "fabric": "^3.3.2",
     "npm": "^6.4.1",
     "path": "^0.12.7",
     "react": "^16.5.2",
