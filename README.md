@@ -1,8 +1,6 @@
 # ReactMultiCrop
 
-
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ea45a02956a4ca78eb39823c15b1cc8)](https://app.codacy.com/app/berviantoleo/ReactMultiCrop?utm_source=github.com&utm_medium=referral&utm_content=bervProject/ReactMultiCrop&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/bervProject/ReactMultiCrop.svg?branch=master)](https://travis-ci.org/bervProject/ReactMultiCrop)
 
@@ -39,6 +37,7 @@ import { Field } from 'redux-form';
 <Field name="my_field" component={ReactMultiCrop} />
 ...
 ```
+
 ### in react-admin depend on another field for image showing
 
 ```js

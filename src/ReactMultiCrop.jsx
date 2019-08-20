@@ -17,11 +17,11 @@ class ReactMultiCrop extends Component {
     this.strokeColor = 'yellow'
     this.strokeDashArray = [5, 5]
     this.strokeWidth = 5
-    this.keyboardHandler = this.keyboardHandler.bind(this)
-    this.addNew = this.addNew.bind(this)
-    this.deleteShapes = this.deleteShapes.bind(this)
-    this.multiSelect = this.multiSelect.bind(this)
-    this.discardActiveObject = this.discardActiveObject.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleNewShape = this.handleNewShape.bind(this)
+    this.handleDeleteShape = this.handleDeleteShape.bind(this)
+    this.handleMultiSelect = this.handleMultiSelect.bind(this)
+    this.handleDiscardActiveObject = this.handleDiscardActiveObject.bind(this)
   }
 
   componentDidMount () {
@@ -83,7 +83,7 @@ class ReactMultiCrop extends Component {
     this.setState({ canvas }, initialImg)
   }
 
-  addNew () {
+  handleNewShape () {
     var { canvas } = this.state
     var coor = {}
     coor.id = null
@@ -154,7 +154,7 @@ class ReactMultiCrop extends Component {
     return coord
   }
 
-  deleteShapes () {
+  handleDeleteShape () {
     var { canvas } = this.state
     if (canvas) {
       canvas.getActiveObjects().forEach(function (element) {
@@ -203,9 +203,9 @@ class ReactMultiCrop extends Component {
     })
   }
 
-  multiSelect () {
+  handleMultiSelect () {
     var { canvas } = this.state
-    canvas.discardActiveObject()
+    canvas.handleDiscardActiveObject()
     var sel = new fabric.ActiveSelection(canvas.getObjects(), {
       canvas: canvas
     })
@@ -213,16 +213,16 @@ class ReactMultiCrop extends Component {
     canvas.requestRenderAll()
   }
 
-  discardActiveObject () {
+  handleDiscardActiveObject () {
     var { canvas } = this.state
-    canvas.discardActiveObject()
+    canvas.handleDiscardActiveObject()
     canvas.requestRenderAll()
   }
 
-  keyboardHandler (event) {
+  handleKeyPress (event) {
     if (event.keyCode === 46) {
       // Handle Delete
-      this.deleteShapes()
+      this.handleDeleteShape()
     }
   }
 
@@ -232,30 +232,34 @@ class ReactMultiCrop extends Component {
     return (
       <div id='canvas-wrapper'>
         <Labeled label={name}>
-          <Grid container
+          <Grid
+            container
             direction='row'
             justify='flex-start'
             alignItems='flex-start'
-            spacing='8'>
-            <Grid item xs onKeyDown={this.keyboardHandler} tabIndex='0'>
-              <canvas width='800' height='800' style={{ border: '1px solid #aaa' }}{...this.props} />
+            spacing='8'
+          >
+            <Grid item xs onKeyDown={this.handleKeyPress} tabIndex='0'>
+              <canvas width='800' height='800' style={{ border: '1px solid #aaa' }} {...this.props} />
             </Grid>
-            <Grid container item xs
+            <Grid
+              container item xs
               direction='column'
               justify='flex-start'
               alignItems='flex-start'
-              spacing='8'>
+              spacing='8'
+            >
               <Grid item xs>
-                <Button variant='raised' id='addmore' color='primary' onClick={this.addNew} > Add More Shapes</Button>
+                <Button variant='raised' id='addmore' color='primary' onClick={this.handleNewShape}> Add More Shapes</Button>
               </Grid>
               <Grid item xs>
-                <Button variant='raised' id='deleteselected' color='primary' onClick={this.deleteShapes}> Delete Selected Object </Button>
+                <Button variant='raised' id='deleteselected' color='primary' onClick={this.handleDeleteShape}> Delete Selected Object </Button>
               </Grid>
               <Grid item xs>
-                <Button variant='raised' id='multiselect' color='primary' onClick={this.multiSelect}> Select All </Button>
+                <Button variant='raised' id='multiselect' color='primary' onClick={this.handleMultiSelect}> Select All </Button>
               </Grid>
-              <Grid item xs >
-                <Button variant='raised' id='discard' color='primary' onClick={this.discardActiveObject}> Discard Selection</Button>
+              <Grid item xs>
+                <Button variant='raised' id='discard' color='primary' onClick={this.handleDiscardActiveObject}> Discard Selection</Button>
               </Grid>
             </Grid>
             <input type='hidden' value={value} />
