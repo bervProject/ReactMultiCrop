@@ -3132,9 +3132,9 @@ extsprintf@^1.2.0:
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
 fabric@^3.3.2:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/fabric/-/fabric-3.4.0.tgz#1b636f6bab0b54552b1a1338a994490b6fc73958"
-  integrity sha512-NRkpsIx4MY0U5HDvorhabf/p0UdZkI05NU/H2UyY6CyZrtkOMMTiTHHyrByezwzsfddPCmgl0f+0xj9F8o2Opg==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/fabric/-/fabric-3.5.0.tgz#16762211dfdadc1b797a97bfcd918124a4c96b20"
+  integrity sha512-QWPMeOUkndRZkfG9os+W1GuYrK2DITTq2us8JJ3S2Tku3sMZGxo3nEvIiZdh529abGwkQeb7gSHqYJMSDgwUkQ==
   optionalDependencies:
     canvas "^2.6.0"
     jsdom "^15.1.0"
