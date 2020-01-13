@@ -176,10 +176,10 @@
   dependencies:
     "@babel/types" "^7.7.4"
 
-"@babel/helper-plugin-utils@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0.tgz#bbb3fbee98661c569034237cc03967ba99b4f250"
-  integrity sha512-CYAOUCARwExnEixLdB6sDm2dIJ/YgEAKDM1MOeMeZu9Ld/bDgVo8aiWrXwcY7OBh+1Ea2uUcVRcxKk0GJvW7QA==
+"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.8.0":
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.8.0.tgz#59ec882d43c21c544ccb51decaecb306b34a8231"
+  integrity sha512-+hAlRGdf8fHQAyNnDBqTHQhwdLURLdrCROoWaEQYiQhk2sV9Rhs+GoFZZfMJExTq9HG8o2NX3uN2G90bFtmFdA==
 
 "@babel/helper-regex@^7.0.0", "@babel/helper-regex@^7.4.4":
   version "7.5.5"
@@ -316,12 +316,12 @@
     "@babel/plugin-syntax-export-namespace-from" "^7.7.4"
 
 "@babel/plugin-proposal-function-bind@^7.0.0":
-  version "7.7.4"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-function-bind/-/plugin-proposal-function-bind-7.7.4.tgz#a7a98439722f921ae0000f88750058b45011adbb"
-  integrity sha512-0qJlxfYKHs/JUg+JFISl29YObUCKAOQ0ENHMYoxErBFp58XTXwQEsrVPhs2TGL3cxI21XPs2fpommO6zmCd3/A==
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-function-bind/-/plugin-proposal-function-bind-7.8.0.tgz#fd6331ac0bab586d8b2b1749817221d719c807cf"
+  integrity sha512-mbGbYcKbRyws4YEyb1db/wGJ7qwkCWWAjG00QFPmtqHGRigIPJ54MZuSlgl3uTvHg6I3u5kGEMk4VJWaXv2mUw==
   dependencies:
-    "@babel/helper-plugin-utils" "^7.0.0"
-    "@babel/plugin-syntax-function-bind" "^7.7.4"
+    "@babel/helper-plugin-utils" "^7.8.0"
+    "@babel/plugin-syntax-function-bind" "^7.8.0"
 
 "@babel/plugin-proposal-function-sent@^7.1.0":
   version "7.7.4"
@@ -454,12 +454,12 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-function-bind@^7.7.4":
-  version "7.7.4"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-function-bind/-/plugin-syntax-function-bind-7.7.4.tgz#625ad69fe4dcb56147fa5b0a68fbaff96fd25864"
-  integrity sha512-dF3QkkaFA3Z7eiD2Cv7Y5x4w2sAKQVHUV2hLqi9iPKexw+/oqpL4crnnalg/Lq31XN33cH3G41kONSCqu06i/Q==
+"@babel/plugin-syntax-function-bind@^7.8.0":
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-function-bind/-/plugin-syntax-function-bind-7.8.0.tgz#80af48c87f882fd3583390a41827fb33f799f3f8"
+  integrity sha512-iHir8a9jJ4/DKseBhcPMQjBJvlnupXORLyxuevHC6XYnIe6jVd4jtAA1IgFUn0OXW4EkpFAcJcO6nW8y8nUUZw==
   dependencies:
-    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/helper-plugin-utils" "^7.8.0"
 
 "@babel/plugin-syntax-function-sent@^7.7.4":
   version "7.7.4"
