@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { fabric } from 'fabric'
 import Button from '@material-ui/core/Button'
-import { Labeled } from 'react-admin'
-
 import Grid from '@material-ui/core/Grid'
 
 class ReactMultiCrop extends Component {
@@ -231,40 +229,39 @@ class ReactMultiCrop extends Component {
 
     return (
       <div id='canvas-wrapper'>
-        <Labeled label={name}>
+        <p>{name}</p>
+        <Grid
+          container
+          direction='row'
+          justify='flex-start'
+          alignItems='flex-start'
+          spacing='8'
+        >
+          <Grid item xs onKeyDown={this.handleKeyPress} tabIndex='0'>
+            <canvas width='800' height='800' style={{ border: '1px solid #aaa' }} {...this.props} />
+          </Grid>
           <Grid
-            container
-            direction='row'
+            container item xs
+            direction='column'
             justify='flex-start'
             alignItems='flex-start'
             spacing='8'
           >
-            <Grid item xs onKeyDown={this.handleKeyPress} tabIndex='0'>
-              <canvas width='800' height='800' style={{ border: '1px solid #aaa' }} {...this.props} />
+            <Grid item xs>
+              <Button variant='raised' id='addmore' color='primary' onClick={this.handleNewShape}> Add More Shapes</Button>
             </Grid>
-            <Grid
-              container item xs
-              direction='column'
-              justify='flex-start'
-              alignItems='flex-start'
-              spacing='8'
-            >
-              <Grid item xs>
-                <Button variant='raised' id='addmore' color='primary' onClick={this.handleNewShape}> Add More Shapes</Button>
-              </Grid>
-              <Grid item xs>
-                <Button variant='raised' id='deleteselected' color='primary' onClick={this.handleDeleteShape}> Delete Selected Object </Button>
-              </Grid>
-              <Grid item xs>
-                <Button variant='raised' id='multiselect' color='primary' onClick={this.handleMultiSelect}> Select All </Button>
-              </Grid>
-              <Grid item xs>
-                <Button variant='raised' id='discard' color='primary' onClick={this.handleDiscardActiveObject}> Discard Selection</Button>
-              </Grid>
+            <Grid item xs>
+              <Button variant='raised' id='deleteselected' color='primary' onClick={this.handleDeleteShape}> Delete Selected Object </Button>
             </Grid>
-            <input type='hidden' value={value} />
+            <Grid item xs>
+              <Button variant='raised' id='multiselect' color='primary' onClick={this.handleMultiSelect}> Select All </Button>
+            </Grid>
+            <Grid item xs>
+              <Button variant='raised' id='discard' color='primary' onClick={this.handleDiscardActiveObject}> Discard Selection</Button>
+            </Grid>
           </Grid>
-        </Labeled>
+          <input type='hidden' value={value} />
+        </Grid>
       </div>
     )
   }
