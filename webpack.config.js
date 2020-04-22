@@ -1,8 +1,13 @@
 var path = require('path');
- 
+
 module.exports = {
     mode: 'production',
-    entry: './src/ReactMultiCrop.jsx',
+    devtool: 'sourcemap',
+    entry: './src/ReactMultiCrop.tsx',
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM'
+    },
     output: {
         path: path.resolve('lib'),
         filename: 'ReactMultiCrop.js',
@@ -11,9 +16,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.ts(x?)$/,
                 exclude: /(node_modules)/,
-                use: 'babel-loader'
+                use: 'ts-loader'
+            },
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader'
             }
         ]
     }

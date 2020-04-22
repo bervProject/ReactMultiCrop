@@ -3,18 +3,38 @@ import { fabric } from 'fabric'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 
-class ReactMultiCrop extends Component {
-  constructor (props) {
+export interface ReactMultiCropProps {
+  id: string,
+  color: string,
+  opacity: number,
+  strokeColor: string,
+  strokeDashArray: Array<number>,
+  strokeWidth: number,
+  record: any,
+  input: any
+}
+
+export interface ReactMultiCropStates {
+  canvas: fabric.Canvas,
+  initial: boolean
+}
+
+class ReactMultiCrop extends Component<ReactMultiCropProps, ReactMultiCropStates> {
+  public static defaultProps = {
+    id: 'canvas',
+    color: 'grey',
+    opacity: 0.5,
+    strokeColor: 'yellow',
+    storeDashArray: [5, 5],
+    strokeWidth: 5
+  }
+
+  constructor(props: ReactMultiCropProps) {
     super(props)
     this.state = {
       canvas: null,
       initial: true
     }
-    this.color = 'grey'
-    this.opacity = 0.5
-    this.strokeColor = 'yellow'
-    this.strokeDashArray = [5, 5]
-    this.strokeWidth = 5
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleNewShape = this.handleNewShape.bind(this)
     this.handleDeleteShape = this.handleDeleteShape.bind(this)
@@ -22,46 +42,46 @@ class ReactMultiCrop extends Component {
     this.handleDiscardActiveObject = this.handleDiscardActiveObject.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.initialCanvas()
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     this.changeImage()
   }
 
-  changeImage () {
+  changeImage() {
     const { record } = this.props
     const setImage = this.loadImage.bind(this)
     fabric.Image.fromURL(record.image, setImage)
   }
 
-  loadImage (img) {
-    var { initial, canvas } = this.state
+  loadImage(img: fabric.Image) {
+    const { initial, canvas } = this.state
     canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
-      scaleX: canvas.width / img.width,
-      scaleY: canvas.height / img.height
+      scaleX: canvas.getWidth() / img.width,
+      scaleY: canvas.getHeight() / img.height
     })
     if (initial) {
       this.setState({ initial: false }, this.initialObjects.bind(this))
     }
   }
 
-  initialImage () {
+  initialImage() {
     const { record } = this.props
     const loadImageNow = this.loadImage.bind(this)
     fabric.Image.fromURL(record.image, loadImageNow)
   }
 
-  initialObjects () {
-    var { canvas } = this.state
+  initialObjects() {
+    const { canvas } = this.state
     const { record } = this.props
     const setOutput = this.setOutput.bind(this)
     const setStateOf = this.setState.bind(this)
     const inputObject = record.clippings
     const createObject = this.createObject.bind(this)
     if (inputObject !== undefined) {
-      inputObject.forEach(function (coord) {
+      inputObject.forEach(function (coord: any) {
         const rect = createObject(canvas, coord)
         canvas.add(rect)
       })
@@ -70,8 +90,8 @@ class ReactMultiCrop extends Component {
     setStateOf({ canvas }, setOutput)
   }
 
-  initialCanvas () {
-    var canvas = new fabric.Canvas(this.props.id)
+  initialCanvas() {
+    const canvas = new fabric.Canvas(this.props.id)
     canvas.uniScaleTransform = true
     const doubleClickEvent = this.doubleClickEvent.bind(this)
     const objectModifiedEvent = this.setOutput.bind(this)
@@ -81,31 +101,31 @@ class ReactMultiCrop extends Component {
     this.setState({ canvas }, initialImg)
   }
 
-  handleNewShape () {
-    var { canvas } = this.state
-    var coor = {}
+  handleNewShape() {
+    const { canvas } = this.state
+    const coor: any = {}
     coor.id = null
     coor.rect = { x1: 0, y1: 0, x2: 0.2, y2: 0.2 }
-    var rect = this.createObject(canvas, coor)
+    const rect = this.createObject(canvas, coor)
     rect.lockRotation = true
     canvas.add(rect)
     canvas.renderAll()
     this.setState({ canvas }, this.setOutput)
   }
 
-  doubleClickEvent (options) {
+  doubleClickEvent(options: any) {
     if (options.target) {
-      var { canvas } = this.state
+      const { canvas } = this.state
       const left = options.target.left
       const top = options.target.top
       const width = options.target.width
       const height = options.target.height
-      var attribute = {}
+      const attribute: any = {}
       attribute.left = left + 5
       attribute.top = top + 5
       attribute.width = width * options.target.scaleX
       attribute.height = height * options.target.scaleY
-      var rect = this.createObjectByAttribute(attribute)
+      const rect = this.createObjectByAttribute(attribute)
       rect.lockRotation = true
       canvas.add(rect)
       canvas.renderAll()
@@ -113,78 +133,80 @@ class ReactMultiCrop extends Component {
     }
   }
 
-  createObjectByAttribute (attribute) {
+  createObjectByAttribute(attribute: any): fabric.Rect {
+    const { color, opacity, strokeDashArray, strokeColor, strokeWidth } = this.props;
     return new fabric.Rect({
       left: attribute.left,
       top: attribute.top,
       width: attribute.width,
       height: attribute.height,
-      fill: this.color,
-      opacity: this.opacity,
-      id: null,
-      strokeDashArray: this.strokeDashArray,
-      stroke: this.strokeColor,
-      strokeWidth: this.strokeWidth
+      fill: color,
+      opacity: opacity,
+      data: null,
+      strokeDashArray: strokeDashArray,
+      stroke: strokeColor,
+      strokeWidth: strokeWidth
     })
   }
 
-  shapetoStructureData (element) {
-    var { canvas } = this.state
-    const coord = {}
-    coord.id = element.id
-    const x1 = element.left / canvas.width
-    const y1 = element.top / canvas.height
-    const x2 = (element.left + (element.width * element.scaleX)) / canvas.width
-    const y2 = (element.top + (element.height * element.scaleY)) / canvas.height
-    var rectangle = { x1: x1, y1: y1, x2: x2, y2: y2 }
+  shapetoStructureData(element: fabric.Object) {
+    const { canvas } = this.state
+    const coord: any = {}
+    coord.id = element.data
+    const x1 = element.left / canvas.getWidth()
+    const y1 = element.top / canvas.getHeight()
+    const x2 = (element.left + (element.width * element.scaleX)) / canvas.getWidth()
+    const y2 = (element.top + (element.height * element.scaleY)) / canvas.getHeight()
+    const rectangle = { x1: x1, y1: y1, x2: x2, y2: y2 }
     coord.rect = JSON.stringify(rectangle)
-    if (canvas.backgroundImage) {
+    if (canvas.backgroundImage instanceof fabric.Image) {
       const imgWidth = canvas.backgroundImage.width
       const imgHeight = canvas.backgroundImage.height
       const x1Px = x1 * imgWidth
       const x2Px = x2 * imgWidth
       const y1Px = y1 * imgHeight
       const y2Px = y2 * imgHeight
-      var rectanglePx = { x1: x1Px, y1: y1Px, x2: x2Px, y2: y2Px }
+      const rectanglePx = { x1: x1Px, y1: y1Px, x2: x2Px, y2: y2Px }
       coord.rectPx = JSON.stringify(rectanglePx)
     }
     coord.deletedAt = '-1'
     return coord
   }
 
-  handleDeleteShape () {
-    var { canvas } = this.state
+  handleDeleteShape() {
+    const { canvas } = this.state
     if (canvas) {
-      canvas.getActiveObjects().forEach(function (element) {
+      canvas.getActiveObjects().forEach(function (element: fabric.Object) {
         canvas.remove(element)
       })
       this.setState({ canvas }, this.setOutput)
     }
   }
 
-  setOutput () {
-    var { canvas } = this.state
+  setOutput() {
+    const { canvas } = this.state
     const shapeToStructureData = this.shapetoStructureData.bind(this)
-    const outputValue = []
+    const outputValue: Array<any> = []
     const cropcoords = canvas.getObjects()
-    cropcoords.forEach(function (element) {
+    cropcoords.forEach(function (element: fabric.Object) {
       outputValue.push(shapeToStructureData(element))
     })
     // let stringOut = JSON.stringify(outputValue)
     this.props.input.onChange(outputValue)
   }
 
-  createObject (canvas, coor) {
-    var rectangle
+  createObject(canvas: fabric.Canvas, coor: any): fabric.Rect {
+    const { color, opacity, strokeDashArray, strokeColor, strokeWidth } = this.props;
+    let rectangle
     if (typeof coor.rect === 'string') {
       rectangle = JSON.parse(coor.rect)
     } else {
       rectangle = coor.rect
     }
-    const left = canvas.width * rectangle.x1
-    const top = canvas.height * rectangle.y1
-    const right = canvas.width * rectangle.x2
-    const bottom = canvas.height * rectangle.y2
+    const left = canvas.getWidth() * rectangle.x1
+    const top = canvas.getHeight() * rectangle.y1
+    const right = canvas.getWidth() * rectangle.x2
+    const bottom = canvas.getHeight() * rectangle.y2
     const width = right - left
     const height = bottom - top
     return new fabric.Rect({
@@ -192,39 +214,39 @@ class ReactMultiCrop extends Component {
       top: top,
       width: width,
       height: height,
-      fill: this.color,
-      opacity: this.opacity,
-      id: coor.id,
-      strokeDashArray: this.strokeDashArray,
-      stroke: this.strokeColor,
-      strokeWidth: this.strokeWidth
+      fill: color,
+      opacity: opacity,
+      data: coor.id,
+      strokeDashArray: strokeDashArray,
+      stroke: strokeColor,
+      strokeWidth: strokeWidth
     })
   }
 
-  handleMultiSelect () {
-    var { canvas } = this.state
-    canvas.handleDiscardActiveObject()
-    var sel = new fabric.ActiveSelection(canvas.getObjects(), {
+  handleMultiSelect() {
+    const { canvas } = this.state
+    canvas.discardActiveObject()
+    const sel = new fabric.ActiveSelection(canvas.getObjects(), {
       canvas: canvas
     })
     canvas.setActiveObject(sel)
     canvas.requestRenderAll()
   }
 
-  handleDiscardActiveObject () {
-    var { canvas } = this.state
-    canvas.handleDiscardActiveObject()
+  handleDiscardActiveObject() {
+    const { canvas } = this.state
+    canvas.discardActiveObject()
     canvas.requestRenderAll()
   }
 
-  handleKeyPress (event) {
+  handleKeyPress(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.keyCode === 46) {
       // Handle Delete
       this.handleDeleteShape()
     }
   }
 
-  render () {
+  render() {
     const { input: { value, name } } = this.props
 
     return (
@@ -235,9 +257,9 @@ class ReactMultiCrop extends Component {
           direction='row'
           justify='flex-start'
           alignItems='flex-start'
-          spacing='8'
+          spacing={8}
         >
-          <Grid item xs onKeyDown={this.handleKeyPress} tabIndex='0'>
+          <Grid item xs onKeyDown={this.handleKeyPress} tabIndex={0}>
             <canvas width='800' height='800' style={{ border: '1px solid #aaa' }} {...this.props} />
           </Grid>
           <Grid
@@ -245,19 +267,19 @@ class ReactMultiCrop extends Component {
             direction='column'
             justify='flex-start'
             alignItems='flex-start'
-            spacing='8'
+            spacing={8}
           >
             <Grid item xs>
-              <Button variant='raised' id='addmore' color='primary' onClick={this.handleNewShape}> Add More Shapes</Button>
+              <Button variant='contained' id='addmore' color='primary' onClick={this.handleNewShape}> Add More Shapes</Button>
             </Grid>
             <Grid item xs>
-              <Button variant='raised' id='deleteselected' color='primary' onClick={this.handleDeleteShape}> Delete Selected Object </Button>
+              <Button variant='contained' id='deleteselected' color='primary' onClick={this.handleDeleteShape}> Delete Selected Object </Button>
             </Grid>
             <Grid item xs>
-              <Button variant='raised' id='multiselect' color='primary' onClick={this.handleMultiSelect}> Select All </Button>
+              <Button variant='contained' id='multiselect' color='primary' onClick={this.handleMultiSelect}> Select All </Button>
             </Grid>
             <Grid item xs>
-              <Button variant='raised' id='discard' color='primary' onClick={this.handleDiscardActiveObject}> Discard Selection</Button>
+              <Button variant='contained' id='discard' color='primary' onClick={this.handleDiscardActiveObject}> Discard Selection</Button>
             </Grid>
           </Grid>
           <input type='hidden' value={value} />
@@ -265,10 +287,6 @@ class ReactMultiCrop extends Component {
       </div>
     )
   }
-}
-
-ReactMultiCrop.defaultProps = {
-  id: 'canvas'
 }
 
 export default ReactMultiCrop
