@@ -2,7 +2,7 @@
 
 ReactMultiCrop Used Fabric.js and Integrated with react-admin. Designed for [react-admin](https://github.com/marmelab/react-admin) component.
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Build Status
 
