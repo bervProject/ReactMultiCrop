@@ -5,19 +5,20 @@ ReactMultiCrop Used Fabric.js and Integrated with react-admin. Designed for [rea
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 ## Build Status
-| Codacy | Travis |
-|:------:|:------:|
+
+|                                                                                                                                  Codacy                                                                                                                                   |                                                                 Travis                                                                  |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ea45a02956a4ca78eb39823c15b1cc8)](https://app.codacy.com/app/berviantoleo/ReactMultiCrop?utm_source=github.com&utm_medium=referral&utm_content=bervProject/ReactMultiCrop&utm_campaign=Badge_Grade_Settings) | [![Build Status](https://travis-ci.org/bervProject/ReactMultiCrop.svg?branch=master)](https://travis-ci.org/bervProject/ReactMultiCrop) |
 
 ## Prerequisted and Dependecies
 
-* Please read how to install fabric.js:
+- Please read how to install fabric.js:
 
 https://www.npmjs.com/package/fabric
 
-* Dependencies:
-  * Material UI
-  * fabric.js
+- Dependencies:
+  - Material UI
+  - fabric.js
 
 ## How to Install
 
