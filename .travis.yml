@@ -5,6 +5,7 @@ before_install:
   - yarn
 script:
   - yarn test
+  - curl -s https://codecov.io/bash | bash
   - yarn build
 deploy:
   provider: npm
