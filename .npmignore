@@ -4,3 +4,4 @@ webpack.config.js
 .travis.yml
 .gitignore
 package-lock.json
+coverage
