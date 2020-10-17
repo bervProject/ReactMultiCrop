@@ -5,6 +5,7 @@ before_install:
   - yarn
 script:
   - yarn test
+  - yarn build
 deploy:
   provider: npm
   email: bervianto.leo@gmail.com
