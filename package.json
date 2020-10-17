@@ -6,7 +6,7 @@
   "module": "build/index.esm.js",
   "scripts": {
     "start": "webpack --mode=development",
-    "build": "rollup -c",
+    "build": "cross-env NODE_ENV=production rollup -c",
     "fix-lint": "prettier --write .",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
@@ -48,6 +48,7 @@
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
+    "cross-env": "^7.0.2",
     "fabric": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.5.3",

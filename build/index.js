@@ -64,6 +64,22 @@ var __assign = function () {
   return __assign.apply(this, arguments);
 };
 
+function __rest(s, e) {
+  var t = {};
+  for (var p in s)
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+      t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+      if (
+        e.indexOf(p[i]) < 0 &&
+        Object.prototype.propertyIsEnumerable.call(s, p[i])
+      )
+        t[p[i]] = s[p[i]];
+    }
+  return t;
+}
+
 var ReactMultiCrop = (function (_super) {
   __extends(ReactMultiCrop, _super);
   function ReactMultiCrop(props) {
@@ -304,17 +320,19 @@ var ReactMultiCrop = (function (_super) {
     canvas.requestRenderAll();
   };
   ReactMultiCrop.prototype.handleKeyPress = function (event) {
-    if (event.keyCode === 46) {
+    if (event.key === "Delete") {
       this.handleDeleteShape();
     }
   };
   ReactMultiCrop.prototype.render = function () {
-    var _a = this.props.input,
-      value = _a.value,
-      name = _a.name;
+    var _a = this.props,
+      _b = _a.input,
+      value = _b.value,
+      name = _b.name,
+      otherProps = __rest(_a, ["input"]);
     return React__default["default"].createElement(
       "div",
-      { id: "canvas-wrapper" },
+      { "data-testid": "canvas-wrapper", id: "canvas-wrapper" },
       React__default["default"].createElement("p", null, name),
       React__default["default"].createElement(
         core.Grid,
@@ -336,7 +354,7 @@ var ReactMultiCrop = (function (_super) {
                 height: "800",
                 style: { border: "1px solid #aaa" },
               },
-              this.props
+              otherProps
             )
           )
         ),
@@ -429,7 +447,11 @@ var ReactMultiCrop = (function (_super) {
     strokeDashArray: [5, 5],
     strokeWidth: 5,
     record: [],
-    input: null,
+    input: {
+      value: "",
+      name: "",
+      onChange: function () {},
+    },
   };
   return ReactMultiCrop;
 })(React.Component);

@@ -1,4 +1,4 @@
-export interface ReactMultiCropProps {
+export declare type ReactMultiCropProps = {
   id: string;
   color?: string;
   opacity?: number;
@@ -7,8 +7,8 @@ export interface ReactMultiCropProps {
   strokeWidth?: number;
   record?: any;
   input?: any;
-}
-export interface ReactMultiCropStates {
+};
+export declare type ReactMultiCropStates = {
   canvas: fabric.Canvas | null;
   initial: boolean;
-}
+};
