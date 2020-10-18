@@ -12,13 +12,13 @@ ReactMultiCrop Used Fabric.js and Integrated with react-admin. Designed for [rea
 
 ## Prerequisted and Dependecies
 
-- Please read how to install fabric.js:
+-   Please read how to install fabric.js:
 
 https://www.npmjs.com/package/fabric
 
-- Dependencies:
-  - Material UI
-  - fabric.js
+-   Dependencies:
+    -   Material UI
+    -   fabric.js
 
 ## How to Install
 

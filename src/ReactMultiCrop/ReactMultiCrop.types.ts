@@ -8,4 +8,4 @@ export interface ReactMultiCropProps extends InputProps {
   strokeDashArray?: Array<number>;
   strokeWidth?: number;
   record?: any;
-};
+}

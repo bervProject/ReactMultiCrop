@@ -1,8 +1,17 @@
 // in src/App.js
 import * as React from "react";
-import { Admin, Resource, Create, SimpleForm, ImageInput, List, Datagrid, TextField } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
-import ReactMultiCrop from './ReactMultiCrop';
+import {
+  Admin,
+  Resource,
+  Create,
+  SimpleForm,
+  ImageInput,
+  List,
+  Datagrid,
+  TextField,
+} from "react-admin";
+import simpleRestProvider from "ra-data-simple-rest";
+import ReactMultiCrop from "./ReactMultiCrop";
 
 const CreateForm = (props: any) => (
   <Create {...props}>
@@ -21,9 +30,11 @@ const ListPost = (props: any) => (
   </List>
 );
 
-const dataProvider = simpleRestProvider('https://jsonplaceholder.typicode.com');
-const App = () => <Admin dataProvider={dataProvider}>
-  <Resource name="posts" list={ListPost} create={CreateForm} />
-</Admin>;
+const dataProvider = simpleRestProvider("https://jsonplaceholder.typicode.com");
+const App = () => (
+  <Admin dataProvider={dataProvider}>
+    <Resource name="posts" list={ListPost} create={CreateForm} />
+  </Admin>
+);
 
 export default App;
