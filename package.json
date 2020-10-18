@@ -47,7 +47,6 @@
     "@types/jest": "^26.0.14",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
-    "@types/redux-form": "^8.3.0",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
     "cross-env": "^7.0.2",
