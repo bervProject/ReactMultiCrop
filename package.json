@@ -31,8 +31,8 @@
   "homepage": "https://github.com/bervProject/ReactMultiCrop#readme",
   "peerDependencies": {
     "@material-ui/core": ">=4.2.1",
-    "fabric": ">=3.3.2",
-    "react": ">=16.5.2"
+    "fabric": ">=4.0",
+    "react": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -46,6 +46,7 @@
     "@types/jest": "^26.0.14",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@types/redux-form": "^8.3.0",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
     "cross-env": "^7.0.2",
@@ -53,7 +54,9 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.5.3",
     "prettier": "^2.1.2",
+    "ra-data-simple-rest": "^3.9.3",
     "react": "^16.14.0",
+    "react-admin": "^3.9.4",
     "react-dom": "^16.14.0",
     "rollup": "^2.32.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",

@@ -1,11 +1,8 @@
 import React from "react";
-import ReactMultiCrop from "./ReactMultiCrop";
+import ReactMultiCropForm from "./ReactMultiCropForm";
 
 export default {
   title: "ReactMultiCrop"
 };
 
-export const Canvas = () => <ReactMultiCrop id="canvas" input={{
-  name: 'canvas', value: '', onChange: function () {
-  }
-}} record={[]} />;
+export const Canvas = () => <ReactMultiCropForm />;
