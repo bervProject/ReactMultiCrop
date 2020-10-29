@@ -37,7 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@material-ui/core": "^4.11.0",
-    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@storybook/react": "^6.0.26",
     "@testing-library/jest-dom": "^5.11.4",
