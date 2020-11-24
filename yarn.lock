@@ -2133,10 +2133,10 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
-"@types/fabric@^3.6.8":
-  version "3.6.9"
-  resolved "https://registry.yarnpkg.com/@types/fabric/-/fabric-3.6.9.tgz#4561a64b3f19c8ff7895621e98e96c18f410b984"
-  integrity sha512-eCClezkOgC1VG8CijnQXVUXIDtxR/gMomXNtu/H2/MucFTbokIzH9yGoJTiHwStWgR1QGif21ta+tc/7y8zegQ==
+"@types/fabric@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/fabric/-/fabric-4.2.0.tgz#53197df01787fac188f5767099d2d081c5f5ffd5"
+  integrity sha512-1kU5hKAF/UD55rMTQgjC5qeyEzkTXQduEa6l/0+vy9Wp9hJQkRu/M0kYfnjJBwDownT/DWXwkstbo+Ac3AfLUw==
 
 "@types/glob-base@^0.3.0":
   version "0.3.0"
