@@ -1,5 +1,9 @@
 # ReactMultiCrop
 
+**Deprecated**
+
+Move [here](https://github.com/berviantoleo/react-multi-crop)
+
 ReactMultiCrop Used Fabric.js and Integrated with react-admin. Designed for [react-admin](https://github.com/marmelab/react-admin) component.
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
